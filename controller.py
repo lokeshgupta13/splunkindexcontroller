@@ -12,11 +12,11 @@ def check_index(crds, obj):
         print("No metadata in object, skipping: %s" % json.dumps(obj, indent=1))
         return
     name = metadata.get("name")
-    namespace = metadata.get("namespace")
-    obj["spec"]["isexist"] = True
+    namespace = metadata.get("namespace")    
     brand = obj["spec"]["projectname"]
     if brand in indexexist:
         obj["spec"]["comment"] = "Index exist for this project"
+        obj["spec"]["isexist"] = True
     else:
         obj["spec"]["comment"] = "Index does not exists for this project"
 
