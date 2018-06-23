@@ -1,0 +1,7 @@
+apiVersion: "fluentd.mylabs.local/v1"
+kind: SplunkIndex
+metadata:
+  name: project3
+spec:
+  indexname: project_log_project3
+  isexist: false
