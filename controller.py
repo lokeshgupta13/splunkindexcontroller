@@ -4,7 +4,7 @@ from kubernetes import client, config, watch
 import os
 
 DOMAIN = "fluentd.mylabs.local"
-indexexist = ['project1', 'project3', 'project5']
+indexexist = ['project_log_project1', 'project_log_project3', 'project_log_project5']
 
 def check_index(crds, obj):
     metadata = obj.get("metadata")
@@ -13,9 +13,9 @@ def check_index(crds, obj):
         return
     name = metadata.get("name")
     namespace = metadata.get("namespace")    
-    brand = obj["spec"]["projectname"]
-    if brand in indexexist:
-        obj["spec"]["comment"] = "Index exist for this project"
+    index = obj["spec"]["indexname"]
+    if index in indexexist:
+        obj["spec"]["comment"] = "Index exists for this project"
         obj["spec"]["isexist"] = True
     else:
         obj["spec"]["comment"] = "Index does not exists for this project"
