@@ -1,5 +1,5 @@
 FROM karmab/client-python-kubernetes
-MAINTAINER Karim Boumedhel <karimboumedhel@gmail.com>
+MAINTAINER Lokesh Gupta <lokeshgupta13@gmail.com>
 
 EXPOSE 9000
 
