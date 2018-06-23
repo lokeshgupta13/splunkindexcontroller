@@ -2,4 +2,4 @@ FROM centos:7
 MAINTAINER Lokesh Gupta <lokeshgupta13@gmail.com>
 
 RUN yum -y install git epel-release && yum -y install python-pip && yum clean all && rm -rf /var/cache/yum
-RUN pip install --upgrade pip setuptools && pip install git+git://github.com/lokeshgupta13/python.git
+RUN pip install --upgrade pip setuptools && pip install git+git://github.com/lokeshgupta13/python.git --ignore-installed
