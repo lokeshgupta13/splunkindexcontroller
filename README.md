@@ -1,6 +1,4 @@
-# samplecontroller repository
-
-[![](https://images.microbadger.com/badges/image/karmab/samplecontroller.svg)](https://microbadger.com/images/karmab/samplecontroller "Get your own image badge on microbadger.com")
+# splunkindexcontroller repository
 
 This is a simple controller to demonstrate how to interact within kubernetes using python api and custom resource definitions
 
@@ -13,47 +11,33 @@ This is a simple controller to demonstrate how to interact within kubernetes usi
 on minikub/gce
 
 ```
-kubectl run samplecontroller --image=karmab/samplecontroller --restart=Always
-kubectl run sampleui --image=karmab/sampleui
-kubectl expose deployment sampleui --port=9000 --target-port=9000 --type=LoadBalancer
+kubectl run splunkindexcontroller --image=lokeshgupta/splunkindexcontroller:1.0 --restart=Always
 ```
 
-- on openshift ( enough privileges needed as i m checking guitars cluster wide)
+- on openshift ( enough privileges needed as i m checking splunkindexes cluster wide)
 
 ```
-oc new-project guitarcenter
-oc adm policy add-cluster-role-to-user cluster-admin -z default -n guitarcenter
-oc new-app karmab/samplecontroller
+oc new-project splunkfluentd
+oc adm policy add-cluster-role-to-user cluster-admin -z default -n splunkfluentd
+oc new-app lokeshgupta/splunkindexcontroller:1.0
 ```
 
-Note that the guitar custom resource definition gets created when launching the controller
+Note that the splunkindex custom resource definition gets created when launching the controller
 
 ## How to use
 
-Create some guitars and see the review made for you
+Create some splunkindex and see if exists or not
 
 ```
-oc create -f crd/stratocaster.yml
-oc create -f crd/lespaul.yml
-oc get guitars -o yaml
+oc create -f crd/project1.yml
+oc create -f crd/project2.yml
+oc create -f crd/project3.yml
+oc get splunkindexes -o yaml
 ```
-
-## UI
-
-To ease testing, you can also use the provided UI to list, create and delete guitars
-
-```
-oc new-app karmab/sampleui
-oc expose svc sampleui
-```
-
-## BONUS
-
-You can also have a look at [initializer](initializer) for extra code around Initializers
 
 ## Copyright
 
-Copyright 2017 Karim Boumedhel
+Copyright 2018 Lokesh Gupta
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -69,8 +53,6 @@ limitations under the License.
 
 ## Problems?
 
-Send me a mail at [karimboumedhel@gmail.com](mailto:karimboumedhel@gmail.com) !
+Send me a mail at [lokeshgupta13@gmail.com](mailto:lokeshgupta13@gmail.com) !
 
-Mc Fly!!!
-
-karmab
+Lokesh Gupta
