@@ -1,7 +1,7 @@
 FROM karmab/client-python-kubernetes
-MAINTAINER Karim Boumedhel <karimboumedhel@gmail.com>
+MAINTAINER Lokesh Gupta <lokeshgupta13@gmail.com>
 
 ADD controller.py /tmp
-ADD guitar.yml /tmp
+ADD splunkindex.yml /tmp
 
 ENTRYPOINT  ["python", "-u", "/tmp/controller.py"]
