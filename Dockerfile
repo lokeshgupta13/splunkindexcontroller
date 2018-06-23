@@ -1,4 +1,4 @@
-FROM karmab/client-python-kubernetes
+FROM lokeshgupta/client-python-kubernetes
 MAINTAINER Lokesh Gupta <lokeshgupta13@gmail.com>
 
 ADD controller.py /tmp
